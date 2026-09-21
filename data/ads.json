@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Продам горный велосипед",
+    "category": "Транспорт",
+    "price": 15000,
+    "seller_name": "Иван Петров",
+    "publish_date": "2026-09-01",
+    "is_active": true
+  },
+  {
+    "id": 2,
+    "title": "Диван угловой, б/у",
+    "category": "Мебель",
+    "price": 8000,
+    "seller_name": "Мария Смирнова",
+    "publish_date": "2026-09-10",
+    "is_active": true
+  }
+]
