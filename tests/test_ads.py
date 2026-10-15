@@ -13,6 +13,7 @@ from ads import (
     filter_ads_by_category,
     find_ads,
     find_ads_by_seller,
+    get_category_names,
     get_stats,
     sort_ads_by_price,
 )
@@ -111,6 +112,21 @@ def test_expired_ad_status():
         publish_date=date.today() - timedelta(days=Ad.MAX_ACTIVE_DAYS + 1),
     )
     assert ad.status == "Срок размещения объявления истёк"
+
+
+def test_is_expired():
+    ad = make_ad([], "Велосипед", "Транспорт", 15000, "Иван")
+    assert ad.is_expired() is False
+    ad.publish_date = date.today() - timedelta(days=Ad.MAX_ACTIVE_DAYS + 1)
+    assert ad.is_expired() is True
+
+
+def test_get_category_names_unique_and_sorted():
+    ads = []
+    make_ad(ads, "Велосипед", "Транспорт", 15000, "Иван")
+    make_ad(ads, "Диван", "Мебель", 8000, "Пётр")
+    make_ad(ads, "Самокат", "транспорт", 3000, "Иван")
+    assert get_category_names(ads) == ["Мебель", "Транспорт"]
 
 
 def test_get_stats_counts_only_active_for_average():

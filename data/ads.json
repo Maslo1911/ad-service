@@ -16,5 +16,32 @@
     "seller_name": "Мария Смирнова",
     "publish_date": "2026-09-10",
     "is_active": true
+  },
+  {
+    "id": 3,
+    "title": "Ноутбук Lenovo ThinkPad T14",
+    "category": "Электроника",
+    "price": 42000,
+    "seller_name": "Алексей Кузнецов",
+    "publish_date": "2026-10-05",
+    "is_active": true
+  },
+  {
+    "id": 4,
+    "title": "Детский самокат",
+    "category": "Транспорт",
+    "price": 2500,
+    "seller_name": "Иван Петров",
+    "publish_date": "2026-10-10",
+    "is_active": true
+  },
+  {
+    "id": 5,
+    "title": "Репетитор по математике",
+    "category": "Услуги",
+    "price": 1200,
+    "seller_name": "Ольга Иванова",
+    "publish_date": "2026-10-12",
+    "is_active": false
   }
 ]

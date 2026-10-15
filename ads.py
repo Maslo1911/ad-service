@@ -75,11 +75,13 @@ class Ad:
     def get_status(self, max_active_days: int = MAX_ACTIVE_DAYS) -> str:
         if not self.is_active:
             return "Объявление снято с публикации"
-
-        days_passed = (date.today() - self.publish_date).days
-        if days_passed > max_active_days:
+        if self.is_expired(max_active_days):
             return "Срок размещения объявления истёк"
         return "Объявление активно и видно пользователям"
+
+    def is_expired(self, max_active_days: int = MAX_ACTIVE_DAYS) -> bool:
+        days_passed = (date.today() - self.publish_date).days
+        return days_passed > max_active_days
 
     def deactivate(self) -> None:
         self.is_active = False
@@ -147,6 +149,13 @@ def find_ads(ads: list[Ad], query: str) -> list[Ad]:
 
 def filter_ads_by_category(ads: list[Ad], category: str) -> list[Ad]:
     return [ad for ad in ads if ad.belongs_to(category)]
+
+
+def get_category_names(ads: list[Ad]) -> list[str]:
+    names: dict[str, str] = {}
+    for ad in ads:
+        names.setdefault(ad.category.name.casefold(), ad.category.name)
+    return sorted(names.values(), key=str.casefold)
 
 
 def find_ads_by_seller(ads: list[Ad], seller_name: str) -> list[Ad]:

@@ -1,0 +1,34 @@
+body {
+    background-color: #f5f7fa;
+}
+
+.stat-card {
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.list-group-item a {
+    text-decoration: none;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+.ad-card {
+    max-width: 640px;
+}
+
+.site-footer {
+    margin-top: 3rem;
+    padding: 1rem 0;
+    border-top: 1px solid #dee2e6;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
